@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AwareAddOn enabled="true">
+	<Program><![CDATA[ AwareQuote.exe ]]> </Program>
+	<WorkingDirectory></WorkingDirectory>
+	<Arguments> <![CDATA[ --minutes {MINUTES} --more-or-less {MORE_OR_LESS} --threshold 15 ]]>  </Arguments>
+</AwareAddOn>

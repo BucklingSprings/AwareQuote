@@ -51,7 +51,9 @@
     <Content Include="AwareQuotes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AwareQuote.mbroadcast.xml" />
+    <Content Include="AwareQuote.mbroadcast.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="QuoteStore.fs" />
     <Compile Include="QuoteWindow.fs" />
     <Compile Include="Program.fs" />

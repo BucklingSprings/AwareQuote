@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix 
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+	<Product Id="*" Name="AwareQuote" Language="1033" Version="1.0.0.0" Manufacturer="Buckling Springs LLC" UpgradeCode="F1AEB4B8-25E4-434D-AAE0-60AF879651BC">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="Aware Quote" Level="1">
+			<ComponentGroupRef Id="AwareQuoteFiles" />
+			<ComponentGroupRef Id="AwareQuoteAddOnConfig" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="LocalAppDataFolder">
+				<Directory Id="INSTALLFOLDER" Name="AwareQuote" />
+				<Directory Id="ADDONFOLDER" Name="AwareAddOns" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="AwareQuoteFiles" Directory="INSTALLFOLDER">
+
+			<Component Id="AwareQuoteExecutable" Guid="*">
+				<File Name="$(var.AwareQuote.TargetFileName)" Source="$(var.AwareQuote.TargetPath)"  KeyPath="yes"/>
+			</Component>
+
+			<!-- Dependencies -->
+
+			<Component Id="FSharpCoreAssembly" Guid="*">
+				<File Name="FSharp.Core.dll" Source="$(var.AwareQuote.TargetDir)FSharp.Core.dll"  KeyPath="yes"/>
+			</Component>
+
+			<Component Id="UnionArgParserAssembly" Guid="*">
+				<File Name="UnionArgParser.dll" Source="$(var.AwareQuote.TargetDir)UnionArgParser.dll"  KeyPath="yes"/>
+			</Component>
+
+			<Component Id="AwareQuotesXml" Guid="*">
+				<File Name="AwareQuotes.xml" Source="$(var.AwareQuote.TargetDir)AwareQuotes.xml"  KeyPath="yes"/>
+			</Component>
+
+		</ComponentGroup>
+
+		<ComponentGroup Id="AwareQuoteAddOnConfig" Directory="ADDONFOLDER">
+			<Component Id="AwareQuoteConfig" Guid="*">
+				<File Id="AwareQuoteConfigFile" Name="AwareQuote.mbroadcast.xml" Source="$(var.AwareQuote.TargetDir)AwareQuote.mbroadcast.xml"  KeyPath="yes" />
+
+				<util:XmlFile Id="SetWorkingDirectory"
+						Action="setValue"
+						ElementPath="/AwareAddOn/WorkingDirectory"
+						Value="[INSTALLFOLDER]"
+						File="[ADDONFOLDER]AwareQuote.mbroadcast.xml"
+						SelectionLanguage="XPath"
+						Sequence="1"/>
+			</Component>
+		</ComponentGroup>
+		
+		
+	</Fragment>
+</Wix>

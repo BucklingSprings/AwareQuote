@@ -37,7 +37,7 @@
 			Text="{Binding QuoteText}" Foreground="{Binding TextColor}"
 			FontSize="60"
 			TextWrapping="Wrap"
-			FontFamily="/Quote;Component/#League Gothic">
+			FontFamily="/AwareQuote;Component/#League Gothic">
 		</TextBlock>
 
 		<TextBlock 

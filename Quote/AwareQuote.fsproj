@@ -8,7 +8,7 @@
     <ProjectGuid>3f9b9eec-4da2-49f3-82be-37c471e7858e</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Quote</RootNamespace>
-    <AssemblyName>Quote</AssemblyName>
+    <AssemblyName>AwareQuote</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Name>AwareQuote</Name>
     <Win32Resource>quote.res</Win32Resource>
@@ -25,7 +25,7 @@
     <DocumentationFile>
     </DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>--more-or-less less --minutes 18 --threshold 3</StartArguments>
+    <StartArguments>--minutes 31 --more-or-less less --threshold 15</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

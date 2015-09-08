@@ -42,7 +42,7 @@ type QuoteWindow(quoteFile : string) as w =
 
     do
         QuoteStore.initialize quoteFile
-        let content = Application.LoadComponent(Uri("/Quote;component/QuoteWindow.xaml", UriKind.Relative)) :?> UserControl
+        let content = Application.LoadComponent(Uri("/AwareQuote;component/QuoteWindow.xaml", UriKind.Relative)) :?> UserControl
         w.Content <- content
         w.DataContext <- QuoteWindowViewModel()
         w.WindowState <- WindowState.Maximized
